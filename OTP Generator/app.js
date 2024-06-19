@@ -9,14 +9,14 @@ function otpManage(){
     let interval = 1000;
     let slice = timeout/interval;
 
-    setInterval(function (){
+    let intSet = setInterval(function (){
         otpExpire.innerText = `Time will expire in ${slice}`
-        slice = slice-1;
+        slice = slice - 1;
     },interval)
 
     setTimeout(function (){
         otpExpire.innerText = `OTP Expire`;
-        clearInterval(otpManage)
+        clearInterval(intSet)
         generateOtp();
     }, timeout)
 

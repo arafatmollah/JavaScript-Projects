@@ -10,6 +10,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 40px;
 }
 .input-field{
     display: flex;
@@ -35,12 +36,10 @@ body{
     border: 1px solid rgb(255, 40, 40);
     padding: 10px;
 }
-.otp-app{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 5px;
-}
 .image{
-    height: 400px;
-    width: 400px;
+    width: 300px;
+    height: 150px;
+}
+h1{
+    text-align: center;
 }
