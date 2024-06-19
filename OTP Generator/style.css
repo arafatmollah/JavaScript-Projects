@@ -3,6 +3,7 @@
 body{
     font-family: "Montserrat", sans-serif;
     font-style: normal;
+    margin: 40px;
 }
 .container{
     display: flex;
@@ -21,7 +22,8 @@ body{
     text-align: center;
 }
 .input-field .otp-box:focus{
-    border: none;
+  
+    outline: brown;
 }
 .success{
     color: rgb(40, 255, 40);
@@ -32,4 +34,13 @@ body{
     color: rgb(255, 40, 40);
     border: 1px solid rgb(255, 40, 40);
     padding: 10px;
+}
+.otp-app{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 5px;
+}
+.image{
+    height: 400px;
+    width: 400px;
 }

@@ -4,6 +4,25 @@ let failMessage = document.getElementById('otp-timing')
 let otpExpire = document.getElementById('otp-expire')
 
 
+function otpManage(){
+    let timeout = 15000;
+    let interval = 1000;
+    let slice = timeout/interval;
+
+    setInterval(function (){
+        otpExpire.innerText = `Time will expire in ${slice}`
+        slice = slice-1;
+    },interval)
+
+    setTimeout(function (){
+        otpExpire.innerText = `OTP Expire`;
+        clearInterval(otpManage)
+        generateOtp();
+    }, timeout)
+
+}
+
+
 function tackleInput(){
     const input = document.getElementById('input-field');
     input.addEventListener('input', function(e){
@@ -41,7 +60,6 @@ function validation(){
     [...field.children].forEach((element) =>{
        typeNumber = typeNumber + element.value;
     })
-    console.log(typeNumber)
 
     let result = (generate === parseInt(typeNumber, 10));
 
@@ -49,32 +67,18 @@ function validation(){
         successMessage.innerText = 'Your Otp is matched'
         successMessage.classList.remove("fail");
         successMessage.classList.add("success")
+        
         // successMessage.classList.remove=(failMessage)
     }
     else{
         successMessage.innerText = 'Your otp matched failed'
         successMessage.classList.remove('success');
         successMessage.classList.add('fail')
+        
     }
 }
 
-function otpManage(){
-    let timeout = 15000;
-    let interval = 1000;
-    let slice = timeout/interval;
 
-    let setInt = setInterval(function (){
-        otpExpire.innerText = `Time will expire in ${slice}`
-        slice = slice-1;
-    },interval)
-
-    setTimeout(function (){
-        otpExpire.innerText = `OTP Expire`;
-        clearInterval(otpManage)
-        generateOtp();
-    }, timeout)
-
-}
 
 
 
