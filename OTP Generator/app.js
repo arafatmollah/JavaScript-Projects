@@ -2,6 +2,7 @@ let generate;
 let successMessage = document.getElementById('otp-validation-success');
 let failMessage = document.getElementById('otp-timing')
 let otpExpire = document.getElementById('otp-expire')
+let intSet
 
 
 function otpManage(){
@@ -9,10 +10,12 @@ function otpManage(){
     let interval = 1000;
     let slice = timeout/interval;
 
-    let intSet = setInterval(function (){
+    intSet = setInterval(function (){
         otpExpire.innerText = `Time will expire in ${slice}`
         slice = slice - 1;
     },interval)
+
+    // clearInterval(intSet)
 
     setTimeout(function (){
         otpExpire.innerText = `OTP Expire`;
@@ -53,6 +56,9 @@ function generateOtp(){
     otpManage()
 }
 
+function clearOptInterval(){
+    clearInterval(intSet)
+}
 
 function validation(){
     let typeNumber = "";
@@ -68,6 +74,7 @@ function validation(){
         successMessage.classList.remove("fail");
         successMessage.classList.add("success")
         
+        clearOptInterval();
         // successMessage.classList.remove=(failMessage)
     }
     else{
