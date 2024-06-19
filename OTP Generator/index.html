@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+    <script src="https://kit.fontawesome.com/80b89aadfe.js" crossorigin="anonymous"></script>
+    <title>One Time Password</title>
+</head>
+<body>
+    <div class="container">
+        <h1>OTP Generator App</h1>
+        <div id="input-field" class="input-field">
+            <input type="text" class="otp-box" maxlength="1">
+            <input type="text" class="otp-box" maxlength="1">
+            <input type="text" class="otp-box" maxlength="1">
+            <input type="text" class="otp-box" maxlength="1">
+        </div>
+        <p id="generated-otp"><i class="fa-solid fa-spinner"></i></p>
+        <p id="otp-validation-success"></p>
+        <p id="otp-validation-fail"></p>
+    </div>
+</body>
+</html>
