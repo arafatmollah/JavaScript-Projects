@@ -29,3 +29,7 @@ const movieReviewData = [
       }
     ]
   ];
+
+  export function getReviews(){
+    return movieReviewData;
+  }
