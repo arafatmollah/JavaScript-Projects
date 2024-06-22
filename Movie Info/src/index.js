@@ -2,7 +2,8 @@ import { getReviews } from "./data.js";
 
 function init(){
     const movieReviews = getReviews();
-    paintStatistics(movieReviews)
+    paintStatistics(movieReviews);
+    paintmovieReviews(movieReviews)
 }
 
 function paintStatistics(movieReviews){
@@ -27,9 +28,40 @@ function paintStatistics(movieReviews){
 
 function addStats(elem, value){
     let spanEl = document.createElement("span");
-    spanEl.classList.add('3xl')
+    spanEl.classList.add('3xl', 'p-3')
     spanEl.innerText = value;
     elem.appendChild(spanEl)
+}
+
+function paintmovieReviews(movieReviews){
+    let movieReviewsData = movieReviews.flat();
+    console.log(movieReviewsData)
+
+    let movieReviewsEl = document.querySelector("#movieList UL");
+    console.log(movieReviewsEl)
+
+    movieReviewsData.map((movie)=>{
+        let listEl = document.createElement('li');
+        listEl.classList.add('card','mx-5', 'my-3', 'p-4', 'bg-yellow-200', 'rounded-lg');
+
+        let createTitleEl = document.createElement('p');
+        createTitleEl.classList.add('text-pretty', 'mx-3', 'xl', 'mb-3', 'font-semibold');
+        createTitleEl.innerText = `${movie.title} - ${movie.rating}`
+        listEl.appendChild(createTitleEl);
+
+        let createContents= document.createElement('p');
+        createContents.classList.add('my-3');
+        createContents.innerText = movie.content;
+        listEl.appendChild(createContents);
+
+        let reviewsTime = document.createElement('p');
+        reviewsTime.classList.add('text-grey-100','py-2');
+        reviewsTime.innerText = `${new Intl.DateTimeFormat('en-IN').format(movie.on)}  -  by: ${movie.by}`
+        listEl.appendChild(reviewsTime)
+
+
+        movieReviewsEl.appendChild(listEl)
+    })
 }
 
 
